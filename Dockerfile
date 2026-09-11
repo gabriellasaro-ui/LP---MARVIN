@@ -7,6 +7,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-EXPOSE 5011
+EXPOSE 5025
 
-CMD ["gunicorn", "--bind", "0.0.0.0:5016", "app:app"]
+CMD ["gunicorn", "--bind", "0.0.0.0:5025", "app:app"]
