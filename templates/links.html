@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
@@ -15,7 +15,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <script src="{{ url_for('static', filename='tracking.js') }}" defer></script>
 
@@ -26,11 +26,11 @@
   --creme:#F2E6D6;
   --carvao:#161614;
   --mostarda:#DA9413;
-  --creme-claro:#FBF5EC;
+  --papel:#FFFCF7;
   --display:"Playfair Display", Georgia, "Times New Roman", serif;
-  --sans:"Hanken Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --radius:18px;
-  --shadow:0 18px 40px -24px rgba(22,22,20,.55);
+  --sans:"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --radius:22px;
+  --shadow:0 18px 40px -28px rgba(60,35,15,.35), 0 1px 3px -1px rgba(60,35,15,.12);
 }
 
 *{box-sizing:border-box}
@@ -38,13 +38,14 @@ html{-webkit-text-size-adjust:100%}
 body{
   margin:0;
   font-family:var(--sans);
+  font-weight:400;
   color:var(--carvao);
-  background:var(--creme);
+  background:#FAF5EC;
   background-image:
-    radial-gradient(1100px 520px at 50% -220px, rgba(167,64,30,.16), transparent 70%),
-    radial-gradient(900px 480px at 50% 105%, rgba(81,86,45,.14), transparent 70%);
+    radial-gradient(900px 480px at 50% -160px, rgba(167,64,30,.08), transparent 70%),
+    radial-gradient(700px 420px at 50% 100%, rgba(81,86,45,.07), transparent 70%);
   background-attachment:fixed;
-  line-height:1.55;
+  line-height:1.6;
   -webkit-font-smoothing:antialiased;
 }
 img{max-width:100%;display:block}
@@ -52,283 +53,290 @@ a{color:inherit}
 
 .wrap{
   width:100%;
-  max-width:680px;
+  max-width:640px;
   margin:0 auto;
   padding:0 18px;
 }
 
+/* ---------- Texto base ---------- */
+.kicker{
+  font-family:var(--sans);
+  font-size:11px;
+  font-weight:500;
+  letter-spacing:.24em;
+  text-transform:uppercase;
+  color:var(--terracota);
+  margin:0 0 14px;
+}
+.display{
+  font-family:var(--display);
+  font-weight:400;
+  line-height:1.12;
+  letter-spacing:-.005em;
+  margin:0;
+}
+.display em{
+  font-style:italic;
+  font-weight:400;
+  color:var(--terracota);
+}
+
 /* ---------- Topo ---------- */
-.topbar{
-  padding-block:34px 6px;
+.top{
+  padding-block:30px 8px;
   text-align:center;
 }
 .brand{
-  display:inline-flex;
-  flex-direction:column;
-  align-items:center;
-  gap:12px;
-  text-decoration:none;
-}
-.brand-mark{
+  display:inline-block;
   font-family:var(--display);
-  font-size:clamp(34px,9vw,46px);
-  font-weight:700;
-  letter-spacing:.14em;
+  font-weight:500;
+  font-size:22px;
+  letter-spacing:.26em;
   text-transform:uppercase;
-  line-height:1;
   color:var(--terracota);
+  text-decoration:none;
 }
 
 /* ---------- Hero ---------- */
 .hero{
   text-align:center;
-  padding-block:26px 12px;
+  padding-block:26px 40px;
 }
 .hero h1{
-  font-family:var(--display);
-  font-weight:700;
-  font-size:clamp(29px,7.4vw,44px);
-  line-height:1.12;
-  margin:0 0 16px;
-  color:var(--terracota);
-  letter-spacing:-.01em;
-}
-.hero h1 em{
-  font-style:italic;
-  color:var(--oliva);
-}
-.hero .lead{
-  font-size:clamp(16px,4.2vw,18px);
-  font-weight:600;
-  margin:0 0 14px;
+  font-size:clamp(34px,8.4vw,50px);
   color:var(--carvao);
 }
-.hero p.body{
+.hero .lead{
+  font-family:var(--display);
+  font-size:clamp(18px,4.6vw,22px);
+  font-weight:400;
+  line-height:1.35;
+  color:var(--carvao);
+  margin:18px auto 12px;
+  max-width:30ch;
+}
+.hero .body{
   font-size:15px;
   font-weight:400;
+  color:rgba(22,22,20,.72);
   margin:0 auto;
-  max-width:56ch;
-  color:rgba(22,22,20,.78);
+  max-width:52ch;
 }
 
-.units-cue{
+/* ---------- Faixas full-bleed ---------- */
+.band{
+  color:var(--creme);
+  text-align:center;
+  padding-block:52px 50px;
+  position:relative;
+}
+.band.olive{
+  background:
+    radial-gradient(520px 260px at 18% 20%, rgba(255,255,255,.07), transparent 70%),
+    radial-gradient(560px 300px at 85% 90%, rgba(218,148,19,.14), transparent 70%),
+    var(--oliva);
+}
+.band.terra{
+  background:
+    radial-gradient(520px 280px at 15% 15%, rgba(255,255,255,.08), transparent 70%),
+    radial-gradient(600px 320px at 85% 95%, rgba(22,22,20,.22), transparent 70%),
+    var(--terracota);
+}
+.band h2{
+  font-size:clamp(28px,7vw,40px);
+  color:var(--creme);
+}
+.band h2 em{color:var(--mostarda)}
+.band .kicker{color:var(--mostarda)}
+.band .dash{
+  display:block;
+  width:44px;
+  height:3px;
+  border-radius:2px;
+  margin:22px auto 0;
+  background:var(--mostarda);
+  opacity:.9;
+}
+.band p{
+  font-size:15px;
+  color:rgba(242,230,214,.82);
+  max-width:48ch;
+  margin:16px auto 0;
+}
+
+/* ---------- Grupo de unidades ---------- */
+.group{padding-block:44px 8px}
+.group-head{
   display:flex;
-  align-items:center;
-  gap:14px;
-  margin:34px 0 6px;
+  align-items:baseline;
+  gap:18px;
+  margin-bottom:22px;
 }
-.units-cue::before,
-.units-cue::after{
-  content:"";
-  height:1px;
-  flex:1;
-  background:rgba(167,64,30,.3);
-}
-.units-cue span{
-  font-size:11px;
-  letter-spacing:.3em;
-  text-transform:uppercase;
-  font-weight:700;
+.group-head h2{
+  font-size:clamp(32px,8vw,42px);
   color:var(--terracota);
   white-space:nowrap;
 }
-
-/* ---------- Divisor de categoria ---------- */
-.cat{
-  margin:46px 0 22px;
-  text-align:center;
+.group-head .rule{
+  flex:1;
+  height:1px;
+  background:rgba(167,64,30,.35);
+  transform:translateY(-6px);
 }
-.cat h2{
-  margin:0;
-  font-family:var(--display);
-  font-size:clamp(34px,9vw,48px);
-  font-style:italic;
-  font-weight:600;
-  line-height:1;
-  letter-spacing:-.01em;
-  color:var(--terracota);
-}
-.cat.olive h2{color:var(--oliva)}
-.cat h2::after{
-  content:"";
-  display:block;
-  width:52px;
-  height:3px;
-  margin:12px auto 0;
-  border-radius:2px;
-  background:var(--mostarda);
+.group-head .count{
+  font-size:11px;
+  font-weight:500;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:rgba(22,22,20,.5);
+  white-space:nowrap;
 }
 
 /* ---------- Card de unidade ---------- */
 .unit{
-  --card:var(--terracota);
-  background:var(--card);
+  background:var(--papel);
+  border:1px solid rgba(167,64,30,.14);
   border-radius:var(--radius);
   box-shadow:var(--shadow);
-  overflow:hidden;
-  margin-bottom:20px;
+  padding:12px;
+  margin-bottom:22px;
   display:grid;
   grid-template-columns:1fr;
+  gap:6px;
 }
-.unit.olive{--card:var(--oliva)}
-
 .unit-photo{
   margin:0;
   position:relative;
-  background:var(--carvao);
   aspect-ratio:16/10;
+  border-radius:14px;
+  overflow:hidden;
+  background:var(--creme);
 }
 .unit-photo img{
   width:100%;
   height:100%;
   object-fit:cover;
 }
-
-.unit-body{
-  padding:20px 18px 22px;
-  color:var(--creme-claro);
-}
-.unit-kicker{
+.badge{
+  position:absolute;
+  top:12px;
+  left:12px;
   font-size:10px;
-  letter-spacing:.34em;
-  text-transform:uppercase;
-  font-weight:700;
-  color:var(--mostarda);
-  margin:0 0 4px;
-}
-.unit-name{
-  font-family:var(--display);
-  font-weight:700;
-  font-size:clamp(24px,6.2vw,30px);
-  line-height:1.06;
-  margin:0 0 4px;
-  text-transform:uppercase;
-  letter-spacing:.01em;
-}
-.unit-place{
-  margin:0 0 16px;
-  font-size:13px;
   font-weight:500;
-  color:rgba(251,245,236,.72);
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--terracota);
+  background:rgba(251,245,234,.92);
+  padding:7px 12px 6px 14px;
+  border-radius:999px;
 }
-
-.btn-stack{
+.unit-body{padding:12px 8px 6px}
+.unit-body h3{
+  font-family:var(--display);
+  font-weight:500;
+  font-size:clamp(24px,6vw,28px);
+  line-height:1.1;
+  margin:0 0 4px;
+  color:var(--carvao);
+}
+.unit-meta{
+  font-size:13px;
+  color:rgba(22,22,20,.58);
+  margin:0 0 16px;
+}
+.actions{
   display:flex;
   flex-direction:column;
   gap:9px;
 }
+
+/* ---------- Botões ---------- */
 .btn{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:10px;
+  gap:12px;
   width:100%;
-  padding:13px 18px;
+  min-height:46px;
+  padding:12px 20px 12px 22px;
   border-radius:999px;
-  border:0;
   font-family:var(--sans);
-  font-size:13px;
-  font-weight:700;
-  letter-spacing:.14em;
+  font-size:12px;
+  font-weight:500;
+  letter-spacing:.18em;
   text-transform:uppercase;
   text-decoration:none;
   cursor:pointer;
-  background:var(--mostarda);
-  color:var(--carvao);
-  transition:transform .16s ease, filter .16s ease, background .16s ease;
+  transition:transform .15s ease, background .15s ease, border-color .15s ease;
 }
-.btn .arrow{font-size:15px;line-height:1;opacity:.75}
-.btn:hover{transform:translateY(-2px);filter:brightness(1.06)}
-.btn:active{transform:translateY(0)}
-.btn:focus-visible{outline:3px solid var(--creme-claro);outline-offset:2px}
+.btn .arr{font-size:14px;line-height:1;opacity:.85}
+.btn:hover{transform:translateY(-1px)}
+.btn:focus-visible{outline:2px solid var(--mostarda);outline-offset:3px}
 
-.btn.ghost{
-  background:transparent;
-  color:var(--creme-claro);
-  box-shadow:inset 0 0 0 1.5px rgba(251,245,236,.55);
+.btn.solid{
+  background:var(--terracota);
+  color:var(--creme);
 }
-.btn.ghost:hover{background:rgba(251,245,236,.12)}
+.btn.solid:hover{background:#93381A}
+
+.btn.line{
+  background:transparent;
+  color:var(--terracota);
+  border:1px solid rgba(167,64,30,.45);
+}
+.btn.line:hover{background:rgba(167,64,30,.06);border-color:var(--terracota)}
 
 .btn.soon{
   background:transparent;
-  color:rgba(251,245,236,.5);
-  box-shadow:inset 0 0 0 1.5px rgba(251,245,236,.22);
+  color:rgba(22,22,20,.4);
+  border:1px dashed rgba(22,22,20,.28);
   cursor:not-allowed;
   pointer-events:none;
 }
-.btn.soon .arrow{opacity:.4}
+.btn.soon .tag{
+  font-size:10px;
+  letter-spacing:.14em;
+  opacity:.8;
+}
 
-/* ---------- Fechamento ---------- */
-.closing{
-  margin:44px 0 0;
-  background:var(--creme-claro);
-  border:1px solid rgba(167,64,30,.22);
-  border-radius:var(--radius);
-  padding:30px 22px 28px;
-  text-align:center;
-  box-shadow:var(--shadow);
+/* botões dentro das faixas */
+.band .btn.line{
+  color:var(--creme);
+  border-color:rgba(242,230,214,.5);
 }
-.closing h2{
-  font-family:var(--display);
-  font-size:clamp(24px,6vw,32px);
-  line-height:1.14;
-  margin:0 0 12px;
-  color:var(--terracota);
-  font-weight:700;
+.band .btn.soon{
+  color:rgba(242,230,214,.5);
+  border-color:rgba(242,230,214,.32);
 }
-.closing p{
-  margin:0 auto 18px;
-  max-width:50ch;
-  font-size:15px;
-  color:rgba(22,22,20,.78);
-}
-.closing .app-note{
-  font-size:13px;
-  font-weight:700;
-  letter-spacing:.12em;
-  text-transform:uppercase;
-  color:var(--oliva);
-  margin-bottom:14px;
-}
-.app-stack{
+.app-actions{
   display:flex;
   flex-direction:column;
   gap:10px;
-  max-width:340px;
-  margin:0 auto;
-}
-.app-stack .btn{
-  background:var(--carvao);
-  color:var(--creme-claro);
-}
-.app-stack .btn.soon{
-  background:transparent;
-  color:rgba(22,22,20,.42);
-  box-shadow:inset 0 0 0 1.5px rgba(22,22,20,.2);
+  max-width:360px;
+  margin:26px auto 0;
 }
 
+/* ---------- Rodapé ---------- */
 .footer{
   text-align:center;
-  padding-block:30px 40px;
+  padding-block:32px 36px;
   font-size:11px;
-  letter-spacing:.24em;
+  letter-spacing:.22em;
   text-transform:uppercase;
-  font-weight:600;
-  color:rgba(22,22,20,.45);
+  font-weight:500;
+  color:rgba(22,22,20,.5);
 }
 
 /* ---------- Desktop ---------- */
-@media (min-width:620px){
+@media (min-width:680px){
   .unit{
-    grid-template-columns:1fr 1fr;
+    grid-template-columns:minmax(0,46%) minmax(0,1fr);
+    gap:14px;
     align-items:stretch;
   }
-  .unit .unit-photo{grid-column:1;grid-row:1}
-  .unit .unit-body{grid-column:2;grid-row:1;padding:24px 22px}
-  .unit.flip .unit-photo{grid-column:2}
-  .unit.flip .unit-body{grid-column:1}
-  .unit-photo{aspect-ratio:auto}
-  .unit-photo img{min-height:100%}
+  .unit-photo{aspect-ratio:auto;min-height:100%}
+  .unit-body{padding:10px 10px 6px 4px}
+  .hero{padding-block:32px 54px}
 }
 
 @media (prefers-reduced-motion:reduce){
@@ -340,57 +348,62 @@ a{color:inherit}
 
 <body>
 
-<div class="wrap">
+<header class="top wrap">
+  <a class="brand" href="/links" aria-label="Marvin — página inicial">Marvin</a>
+</header>
 
-  <header class="topbar">
-    <a class="brand" href="/links" aria-label="Marvin — página inicial">
-      <span class="brand-mark">Marvin</span>
-    </a>
-  </header>
+<section class="hero wrap">
+  <p class="kicker">Unidades Marvin · Brasília</p>
+  <h1 class="display">Marvin: sabor, atitude e <em>momentos que combinam com você.</em></h1>
+  <p class="lead">Encontre uma unidade perto de você e aproveite uma experiência completa.</p>
+  <p class="body">No Marvin, cada detalhe é pensado para entregar sabor de verdade: burgers artesanais, ingredientes de qualidade e combinações para deixar seu momento ainda melhor.</p>
+</section>
 
-  <section class="hero">
-    <h1>Marvin: sabor, atitude e <em>momentos que combinam com você.</em></h1>
-    <p class="lead">Encontre uma unidade perto de você e aproveite uma experiência completa.</p>
-    <p class="body">No Marvin, cada detalhe é pensado para entregar sabor de verdade: burgers artesanais, ingredientes de qualidade e combinações para deixar seu momento ainda melhor.</p>
+<section class="band olive">
+  <div class="wrap">
+    <h2 class="display">Conheça nossas <em>unidades.</em></h2>
+    <span class="dash" aria-hidden="true"></span>
+  </div>
+</section>
 
-    <div class="units-cue"><span>Conheça nossas unidades</span></div>
-  </section>
+<main>
 
-  <main>
-
-    <!-- ================= CAFÉS ================= -->
-    <div class="cat">
-      <h2>Cafés</h2>
+  <!-- ================= CAFÉS ================= -->
+  <section class="group wrap">
+    <div class="group-head">
+      <h2 class="display">Cafés</h2>
+      <span class="rule" aria-hidden="true"></span>
+      <span class="count">3 unidades</span>
     </div>
 
     <article class="unit">
       <figure class="unit-photo">
         <img src="{{ url_for('static', filename='img/opt/terraco.webp') }}" alt="Fachada da unidade Marvin Terraço" fetchpriority="high" decoding="async">
+        <span class="badge">Café</span>
       </figure>
       <div class="unit-body">
-        <p class="unit-kicker">Unidade</p>
-        <h3 class="unit-name">Terraço</h3>
-        <p class="unit-place">Marvin Cafés</p>
-        <div class="btn-stack">
-          <a class="btn" href="https://drive.google.com/drive/folders/1_5XpvNL1_92a-n10RWk5eNwKir9WtVha?usp=sharing" target="_blank" rel="noopener" data-unit="Terraço" data-action="cardapio">Cardápio <span class="arrow" aria-hidden="true">→</span></a>
-          <a class="btn ghost" href="https://maps.app.goo.gl/hGk3qbQZkz4goKNM7" target="_blank" rel="noopener" data-unit="Terraço" data-action="localizacao">Localização <span class="arrow" aria-hidden="true">→</span></a>
-          <span class="btn soon" role="link" aria-disabled="true">iFood <span class="arrow" aria-hidden="true">em breve</span></span>
+        <h3>Terraço</h3>
+        <p class="unit-meta">Marvin Cafés · Brasília, DF</p>
+        <div class="actions">
+          <a class="btn solid" href="https://drive.google.com/drive/folders/1_5XpvNL1_92a-n10RWk5eNwKir9WtVha?usp=sharing" target="_blank" rel="noopener" data-unit="Terraço" data-action="cardapio">Cardápio <span class="arr" aria-hidden="true">↗</span></a>
+          <a class="btn line" href="https://maps.app.goo.gl/hGk3qbQZkz4goKNM7" target="_blank" rel="noopener" data-unit="Terraço" data-action="localizacao">Localização <span class="arr" aria-hidden="true">↗</span></a>
+          <span class="btn soon" role="link" aria-disabled="true">iFood <span class="tag">em breve</span></span>
         </div>
       </div>
     </article>
 
-    <article class="unit flip">
+    <article class="unit">
       <figure class="unit-photo">
         <img src="{{ url_for('static', filename='img/opt/park-shopping.webp') }}" alt="Fachada da unidade Marvin Park Shopping" loading="lazy" decoding="async">
+        <span class="badge">Café</span>
       </figure>
       <div class="unit-body">
-        <p class="unit-kicker">Unidade</p>
-        <h3 class="unit-name">Park Shopping</h3>
-        <p class="unit-place">Marvin Cafés</p>
-        <div class="btn-stack">
-          <a class="btn" href="https://drive.google.com/drive/folders/1_5XpvNL1_92a-n10RWk5eNwKir9WtVha?usp=sharing" target="_blank" rel="noopener" data-unit="Park Shopping" data-action="cardapio">Cardápio <span class="arrow" aria-hidden="true">→</span></a>
-          <a class="btn ghost" href="https://maps.app.goo.gl/hv7ejPd5RbYhppbN6" target="_blank" rel="noopener" data-unit="Park Shopping" data-action="localizacao">Localização <span class="arrow" aria-hidden="true">→</span></a>
-          <span class="btn soon" role="link" aria-disabled="true">iFood <span class="arrow" aria-hidden="true">em breve</span></span>
+        <h3>Park Shopping</h3>
+        <p class="unit-meta">Marvin Cafés · Brasília, DF</p>
+        <div class="actions">
+          <a class="btn solid" href="https://drive.google.com/drive/folders/1_5XpvNL1_92a-n10RWk5eNwKir9WtVha?usp=sharing" target="_blank" rel="noopener" data-unit="Park Shopping" data-action="cardapio">Cardápio <span class="arr" aria-hidden="true">↗</span></a>
+          <a class="btn line" href="https://maps.app.goo.gl/hv7ejPd5RbYhppbN6" target="_blank" rel="noopener" data-unit="Park Shopping" data-action="localizacao">Localização <span class="arr" aria-hidden="true">↗</span></a>
+          <span class="btn soon" role="link" aria-disabled="true">iFood <span class="tag">em breve</span></span>
         </div>
       </div>
     </article>
@@ -398,137 +411,143 @@ a{color:inherit}
     <article class="unit">
       <figure class="unit-photo">
         <img src="{{ url_for('static', filename='img/opt/casa-park.webp') }}" alt="Fachada da unidade Marvin Casa Park" loading="lazy" decoding="async">
+        <span class="badge">Café</span>
       </figure>
       <div class="unit-body">
-        <p class="unit-kicker">Unidade</p>
-        <h3 class="unit-name">Casa Park</h3>
-        <p class="unit-place">Marvin Cafés</p>
-        <div class="btn-stack">
-          <a class="btn" href="https://drive.google.com/drive/folders/1_5XpvNL1_92a-n10RWk5eNwKir9WtVha?usp=sharing" target="_blank" rel="noopener" data-unit="Casa Park" data-action="cardapio">Cardápio <span class="arrow" aria-hidden="true">→</span></a>
-          <a class="btn ghost" href="https://maps.app.goo.gl/f35QTqLSKhQSBMTo9" target="_blank" rel="noopener" data-unit="Casa Park" data-action="localizacao">Localização <span class="arrow" aria-hidden="true">→</span></a>
-          <span class="btn soon" role="link" aria-disabled="true">iFood <span class="arrow" aria-hidden="true">em breve</span></span>
+        <h3>Casa Park</h3>
+        <p class="unit-meta">Marvin Cafés · Brasília, DF</p>
+        <div class="actions">
+          <a class="btn solid" href="https://drive.google.com/drive/folders/1_5XpvNL1_92a-n10RWk5eNwKir9WtVha?usp=sharing" target="_blank" rel="noopener" data-unit="Casa Park" data-action="cardapio">Cardápio <span class="arr" aria-hidden="true">↗</span></a>
+          <a class="btn line" href="https://maps.app.goo.gl/f35QTqLSKhQSBMTo9" target="_blank" rel="noopener" data-unit="Casa Park" data-action="localizacao">Localização <span class="arr" aria-hidden="true">↗</span></a>
+          <span class="btn soon" role="link" aria-disabled="true">iFood <span class="tag">em breve</span></span>
         </div>
       </div>
     </article>
+  </section>
 
-    <!-- ================= FASTS ================= -->
-    <div class="cat olive">
-      <h2>Fasts</h2>
+  <!-- ================= FASTS ================= -->
+  <section class="group wrap">
+    <div class="group-head">
+      <h2 class="display">Fasts</h2>
+      <span class="rule" aria-hidden="true"></span>
+      <span class="count">6 unidades</span>
     </div>
 
-    <article class="unit olive flip">
+    <article class="unit">
       <figure class="unit-photo">
         <img src="{{ url_for('static', filename='img/opt/iguatemi.webp') }}" alt="Balcão da unidade Marvin Iguatemi" loading="lazy" decoding="async">
+        <span class="badge">Fast</span>
       </figure>
       <div class="unit-body">
-        <p class="unit-kicker">Unidade</p>
-        <h3 class="unit-name">Iguatemi</h3>
-        <p class="unit-place">Marvin Fasts</p>
-        <div class="btn-stack">
-          <a class="btn" href="https://drive.google.com/drive/folders/1CA0WnVYEtZxnSV4tZJKZYvMaoO9HOo5O?usp=sharing" target="_blank" rel="noopener" data-unit="Iguatemi" data-action="cardapio">Cardápio <span class="arrow" aria-hidden="true">→</span></a>
-          <a class="btn ghost" href="https://maps.app.goo.gl/BaqoEsfTtR6oHpRc7" target="_blank" rel="noopener" data-unit="Iguatemi" data-action="localizacao">Localização <span class="arrow" aria-hidden="true">→</span></a>
-          <span class="btn soon" role="link" aria-disabled="true">iFood <span class="arrow" aria-hidden="true">em breve</span></span>
+        <h3>Iguatemi</h3>
+        <p class="unit-meta">Marvin Fasts · Brasília, DF</p>
+        <div class="actions">
+          <a class="btn solid" href="https://drive.google.com/drive/folders/1CA0WnVYEtZxnSV4tZJKZYvMaoO9HOo5O?usp=sharing" target="_blank" rel="noopener" data-unit="Iguatemi" data-action="cardapio">Cardápio <span class="arr" aria-hidden="true">↗</span></a>
+          <a class="btn line" href="https://maps.app.goo.gl/BaqoEsfTtR6oHpRc7" target="_blank" rel="noopener" data-unit="Iguatemi" data-action="localizacao">Localização <span class="arr" aria-hidden="true">↗</span></a>
+          <span class="btn soon" role="link" aria-disabled="true">iFood <span class="tag">em breve</span></span>
         </div>
       </div>
     </article>
 
-    <article class="unit olive">
+    <article class="unit">
       <figure class="unit-photo">
         <img src="{{ url_for('static', filename='img/opt/plaza-norte.webp') }}" alt="Balcão da unidade Marvin Plaza Norte" loading="lazy" decoding="async">
+        <span class="badge">Fast</span>
       </figure>
       <div class="unit-body">
-        <p class="unit-kicker">Unidade</p>
-        <h3 class="unit-name">Plaza Norte</h3>
-        <p class="unit-place">Marvin Fasts</p>
-        <div class="btn-stack">
-          <a class="btn" href="https://drive.google.com/drive/folders/1CA0WnVYEtZxnSV4tZJKZYvMaoO9HOo5O?usp=sharing" target="_blank" rel="noopener" data-unit="Plaza Norte" data-action="cardapio">Cardápio <span class="arrow" aria-hidden="true">→</span></a>
-          <a class="btn ghost" href="https://maps.app.goo.gl/MsJVeXCg7ENVf8vY7" target="_blank" rel="noopener" data-unit="Plaza Norte" data-action="localizacao">Localização <span class="arrow" aria-hidden="true">→</span></a>
-          <span class="btn soon" role="link" aria-disabled="true">iFood <span class="arrow" aria-hidden="true">em breve</span></span>
+        <h3>Plaza Norte</h3>
+        <p class="unit-meta">Marvin Fasts · Brasília, DF</p>
+        <div class="actions">
+          <a class="btn solid" href="https://drive.google.com/drive/folders/1CA0WnVYEtZxnSV4tZJKZYvMaoO9HOo5O?usp=sharing" target="_blank" rel="noopener" data-unit="Plaza Norte" data-action="cardapio">Cardápio <span class="arr" aria-hidden="true">↗</span></a>
+          <a class="btn line" href="https://maps.app.goo.gl/MsJVeXCg7ENVf8vY7" target="_blank" rel="noopener" data-unit="Plaza Norte" data-action="localizacao">Localização <span class="arr" aria-hidden="true">↗</span></a>
+          <span class="btn soon" role="link" aria-disabled="true">iFood <span class="tag">em breve</span></span>
         </div>
       </div>
     </article>
 
-    <article class="unit olive flip">
+    <article class="unit">
       <figure class="unit-photo">
         <img src="{{ url_for('static', filename='img/opt/brasilia-shopping.webp') }}" alt="Balcão da unidade Marvin Brasília Shopping" loading="lazy" decoding="async">
+        <span class="badge">Fast</span>
       </figure>
       <div class="unit-body">
-        <p class="unit-kicker">Unidade</p>
-        <h3 class="unit-name">Brasília Shopping</h3>
-        <p class="unit-place">Marvin Fasts</p>
-        <div class="btn-stack">
-          <a class="btn" href="https://drive.google.com/drive/folders/1CA0WnVYEtZxnSV4tZJKZYvMaoO9HOo5O?usp=sharing" target="_blank" rel="noopener" data-unit="Brasília Shopping" data-action="cardapio">Cardápio <span class="arrow" aria-hidden="true">→</span></a>
-          <a class="btn ghost" href="https://maps.app.goo.gl/fpvUnk5Vne4UnHxr9" target="_blank" rel="noopener" data-unit="Brasília Shopping" data-action="localizacao">Localização <span class="arrow" aria-hidden="true">→</span></a>
-          <a class="btn ghost" href="https://www.ifood.com.br/delivery/brasilia-df/marietta---brasilia-shopping-asa-norte/958d3656-5fb6-49e6-ac2e-b400e4b728de" target="_blank" rel="noopener" data-unit="Brasília Shopping" data-action="ifood">Peça no iFood <span class="arrow" aria-hidden="true">→</span></a>
+        <h3>Brasília Shopping</h3>
+        <p class="unit-meta">Marvin Fasts · Brasília, DF</p>
+        <div class="actions">
+          <a class="btn solid" href="https://drive.google.com/drive/folders/1CA0WnVYEtZxnSV4tZJKZYvMaoO9HOo5O?usp=sharing" target="_blank" rel="noopener" data-unit="Brasília Shopping" data-action="cardapio">Cardápio <span class="arr" aria-hidden="true">↗</span></a>
+          <a class="btn line" href="https://maps.app.goo.gl/fpvUnk5Vne4UnHxr9" target="_blank" rel="noopener" data-unit="Brasília Shopping" data-action="localizacao">Localização <span class="arr" aria-hidden="true">↗</span></a>
+          <a class="btn line" href="https://www.ifood.com.br/delivery/brasilia-df/marietta---brasilia-shopping-asa-norte/958d3656-5fb6-49e6-ac2e-b400e4b728de" target="_blank" rel="noopener" data-unit="Brasília Shopping" data-action="ifood">Peça no iFood <span class="arr" aria-hidden="true">↗</span></a>
         </div>
       </div>
     </article>
 
-    <article class="unit olive">
+    <article class="unit">
       <figure class="unit-photo">
         <img src="{{ url_for('static', filename='img/opt/conjunto-nacional.webp') }}" alt="Balcão da unidade Marvin Conjunto Nacional" loading="lazy" decoding="async">
+        <span class="badge">Fast</span>
       </figure>
       <div class="unit-body">
-        <p class="unit-kicker">Unidade</p>
-        <h3 class="unit-name">Conjunto Nacional</h3>
-        <p class="unit-place">Marvin Fasts</p>
-        <div class="btn-stack">
-          <a class="btn" href="https://drive.google.com/drive/folders/1CA0WnVYEtZxnSV4tZJKZYvMaoO9HOo5O?usp=sharing" target="_blank" rel="noopener" data-unit="Conjunto Nacional" data-action="cardapio">Cardápio <span class="arrow" aria-hidden="true">→</span></a>
-          <a class="btn ghost" href="https://maps.app.goo.gl/r75VvnYbw4Fc9fVC7" target="_blank" rel="noopener" data-unit="Conjunto Nacional" data-action="localizacao">Localização <span class="arrow" aria-hidden="true">→</span></a>
-          <span class="btn soon" role="link" aria-disabled="true">iFood <span class="arrow" aria-hidden="true">em breve</span></span>
+        <h3>Conjunto Nacional</h3>
+        <p class="unit-meta">Marvin Fasts · Brasília, DF</p>
+        <div class="actions">
+          <a class="btn solid" href="https://drive.google.com/drive/folders/1CA0WnVYEtZxnSV4tZJKZYvMaoO9HOo5O?usp=sharing" target="_blank" rel="noopener" data-unit="Conjunto Nacional" data-action="cardapio">Cardápio <span class="arr" aria-hidden="true">↗</span></a>
+          <a class="btn line" href="https://maps.app.goo.gl/r75VvnYbw4Fc9fVC7" target="_blank" rel="noopener" data-unit="Conjunto Nacional" data-action="localizacao">Localização <span class="arr" aria-hidden="true">↗</span></a>
+          <span class="btn soon" role="link" aria-disabled="true">iFood <span class="tag">em breve</span></span>
         </div>
       </div>
     </article>
 
-    <article class="unit olive flip">
+    <article class="unit">
       <figure class="unit-photo">
-        <img src="{{ url_for('static', filename='img/opt/lago-sul.webp') }}" alt="Balcão da unidade Marvin Lago Sul" loading="lazy" decoding="async">
+        <img src="{{ url_for('static', filename='img/opt/lago-sul.webp') }}" alt="Fachada da unidade Marvin Lago Sul" loading="lazy" decoding="async">
+        <span class="badge">Fast</span>
       </figure>
       <div class="unit-body">
-        <p class="unit-kicker">Unidade</p>
-        <h3 class="unit-name">Lago Sul</h3>
-        <p class="unit-place">Marvin Fasts</p>
-        <div class="btn-stack">
-          <a class="btn" href="https://drive.google.com/drive/folders/1CA0WnVYEtZxnSV4tZJKZYvMaoO9HOo5O?usp=sharing" target="_blank" rel="noopener" data-unit="Lago Sul" data-action="cardapio">Cardápio <span class="arrow" aria-hidden="true">→</span></a>
-          <a class="btn ghost" href="https://maps.app.goo.gl/MdURafgsZWRXRiC5A" target="_blank" rel="noopener" data-unit="Lago Sul" data-action="localizacao">Localização <span class="arrow" aria-hidden="true">→</span></a>
-          <span class="btn soon" role="link" aria-disabled="true">iFood <span class="arrow" aria-hidden="true">em breve</span></span>
+        <h3>Lago Sul</h3>
+        <p class="unit-meta">Marvin Fasts · Brasília, DF</p>
+        <div class="actions">
+          <a class="btn solid" href="https://drive.google.com/drive/folders/1CA0WnVYEtZxnSV4tZJKZYvMaoO9HOo5O?usp=sharing" target="_blank" rel="noopener" data-unit="Lago Sul" data-action="cardapio">Cardápio <span class="arr" aria-hidden="true">↗</span></a>
+          <a class="btn line" href="https://maps.app.goo.gl/MdURafgsZWRXRiC5A" target="_blank" rel="noopener" data-unit="Lago Sul" data-action="localizacao">Localização <span class="arr" aria-hidden="true">↗</span></a>
+          <span class="btn soon" role="link" aria-disabled="true">iFood <span class="tag">em breve</span></span>
         </div>
       </div>
     </article>
 
-    <article class="unit olive">
+    <article class="unit">
       <figure class="unit-photo">
-        <img src="{{ url_for('static', filename='img/opt/taguatinga.webp') }}" alt="Balcão da unidade Marvin Taguatinga" loading="lazy" decoding="async">
+        <img src="{{ url_for('static', filename='img/opt/taguatinga.webp') }}" alt="Fachada da unidade Marvin Taguatinga" loading="lazy" decoding="async">
+        <span class="badge">Fast</span>
       </figure>
       <div class="unit-body">
-        <p class="unit-kicker">Unidade</p>
-        <h3 class="unit-name">Taguatinga</h3>
-        <p class="unit-place">Marvin Fasts</p>
-        <div class="btn-stack">
-          <a class="btn" href="https://drive.google.com/drive/folders/1CA0WnVYEtZxnSV4tZJKZYvMaoO9HOo5O?usp=sharing" target="_blank" rel="noopener" data-unit="Taguatinga" data-action="cardapio">Cardápio <span class="arrow" aria-hidden="true">→</span></a>
-          <a class="btn ghost" href="https://maps.app.goo.gl/LePx7N7fMfrxRxQ9A" target="_blank" rel="noopener" data-unit="Taguatinga" data-action="localizacao">Localização <span class="arrow" aria-hidden="true">→</span></a>
-          <span class="btn soon" role="link" aria-disabled="true">iFood <span class="arrow" aria-hidden="true">em breve</span></span>
+        <h3>Taguatinga</h3>
+        <p class="unit-meta">Marvin Fasts · Brasília, DF</p>
+        <div class="actions">
+          <a class="btn solid" href="https://drive.google.com/drive/folders/1CA0WnVYEtZxnSV4tZJKZYvMaoO9HOo5O?usp=sharing" target="_blank" rel="noopener" data-unit="Taguatinga" data-action="cardapio">Cardápio <span class="arr" aria-hidden="true">↗</span></a>
+          <a class="btn line" href="https://maps.app.goo.gl/LePx7N7fMfrxRxQ9A" target="_blank" rel="noopener" data-unit="Taguatinga" data-action="localizacao">Localização <span class="arr" aria-hidden="true">↗</span></a>
+          <span class="btn soon" role="link" aria-disabled="true">iFood <span class="tag">em breve</span></span>
         </div>
       </div>
     </article>
+  </section>
 
-    <section class="closing">
-      <h2>Muito mais que um burger. Uma experiência Marvin.</h2>
+  <section class="band terra">
+    <div class="wrap">
+      <p class="kicker">Baixe o app</p>
+      <h2 class="display">Muito mais que um burger. <em>Uma experiência Marvin.</em></h2>
       <p>Do primeiro pedido ao próximo encontro, estamos perto de você para transformar cada momento em uma experiência ainda mais saborosa.</p>
-      <p class="app-note">Baixe o app e aproveite benefícios exclusivos</p>
-      <div class="app-stack">
-        <span class="btn soon" role="link" aria-disabled="true">Baixar para Android <span class="arrow" aria-hidden="true">em breve</span></span>
-        <span class="btn soon" role="link" aria-disabled="true">Baixar para iOS <span class="arrow" aria-hidden="true">em breve</span></span>
+      <p>Baixe o app e aproveite benefícios exclusivos.</p>
+      <div class="app-actions">
+        <span class="btn soon" role="link" aria-disabled="true">Android <span class="tag">em breve</span></span>
+        <span class="btn soon" role="link" aria-disabled="true">iOS <span class="tag">em breve</span></span>
       </div>
-    </section>
+    </div>
+  </section>
 
-  </main>
+</main>
 
-  <footer class="footer">
-    Marvin · Cafés &amp; Fasts · Brasília — DF
-  </footer>
-
-</div>
+<footer class="footer wrap">
+  Marvin · Brasília, DF
+</footer>
 
 <script>
 document.addEventListener("click", function (e) {
